@@ -12,7 +12,9 @@ const styles = {
     marginBottom: "-5.5px",
     "&:hover svg": {
       color: (props) =>
-        chroma(props.color).luminance() <= 0.08 ? "#ffffff" : "#000000",
+        chroma(props.color).luminance() <= 0.08
+          ? "rgba(255,255,255,1)"
+          : "rgba(0,0,0,1)",
       transform: "scale(1.4)",
       transition: "all 0.3s ease-in-out",
     },

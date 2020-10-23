@@ -18,12 +18,15 @@ export default {
     fontFamily: "'Roboto', sans-serif",
     display: "flex",
     alignItems: "center",
-    "& a": {
+    "& button": {
       textDecoration: "none",
       color: "black",
+      border: "none",
+      fontSize: "1.2rem",
+      outline:"none",
     },
-    [sizes.down("xs")]: {
-      display: "none",
+    [sizes.down("sm")]: {
+     display: "none",
     },
   },
 

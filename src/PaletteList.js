@@ -27,7 +27,6 @@ class PaletteList extends Component {
   }
 
   gotoPalette(id) {
-    console.log(this.props.history);
     this.props.history.push(`/palette/${id}`);
   }
 

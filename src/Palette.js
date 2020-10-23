@@ -22,7 +22,7 @@ class Palette extends Component {
   }
 
   render() {
-    const {classes} = this.props;
+    const {classes, gotoHome} = this.props;
     const { colors, paletteName, emoji, id } = this.props.palette;
     const { level, format } = this.state;
     const colorBoxes = colors[level].map((c) => (
@@ -40,6 +40,7 @@ class Palette extends Component {
           level={level}
           changeLevel={this.changeLevel}
           handleChange={this.changeFormat}
+          gotoHome={gotoHome}
           isSingleColor={false}
         />
         <div className={classes.PaletteColors}>{colorBoxes}</div>

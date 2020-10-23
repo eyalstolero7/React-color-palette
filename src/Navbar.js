@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import Slider from "rc-slider";
 import Select from "@material-ui/core/Select";
@@ -18,6 +18,8 @@ class Navbar extends Component {
     this.state = { format: "hex", open: false };
     this.handleFormatChange = this.handleFormatChange.bind(this);
     this.closeSnackbar = this.closeSnackbar.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.navHome = this.navHome.bind(this);
   }
 
   handleFormatChange(e) {
@@ -30,13 +32,22 @@ class Navbar extends Component {
     this.setState({ open: false });
   }
 
+  handleClick() {
+    this.props.gotoHome(this.navHome);
+  }
+
+  navHome() {
+    console.log("hey");
+    this.props.history.push("/");
+  }
+
   render() {
     const { format, open } = this.state;
     const { level, changeLevel, isSingleColor, classes } = this.props;
     return (
       <header className={classes.Navbar}>
-        <div className={classes.logo}>
-          <Link to="/">reactcolorpicker</Link>
+        <div className={classes.logo} onClick={this.handleClick}>
+          <button>reactcolorpicker</button>
         </div>
         {isSingleColor || (
           <div>
@@ -82,4 +93,4 @@ class Navbar extends Component {
   }
 }
 
-export default withStyles(styles)(Navbar);
+export default withRouter(withStyles(styles)(Navbar));
