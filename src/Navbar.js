@@ -37,7 +37,6 @@ class Navbar extends Component {
   }
 
   navHome() {
-    console.log("hey");
     this.props.history.push("/");
   }
 
